@@ -21,22 +21,23 @@ import org.jsoup.select.Elements;
  * 
  * 	
  * */
+import java.util.*;
 public class 컬렉션_2 {
-	public static Set genieMusic()
+	public static Set<String> genieMusic()
 	{
 		Set<String> set=new HashSet<>();
 		try
 		{
 			for(int k=1;k<=2;k++)
 			{
-			Document doc=Jsoup.connect("https://www.genie.co.kr/chart/top200?ditc=D&ymd=20250825&hh=17&rtm=Y&pg="+k).get(); // 1,2 페이지
-			Elements title=doc.select("table.list-wrap a.title");
-			}
-			for(int i=0;i<title.size();i++)
-			{
-				String t=title.get(i).text();
-				set.add(t);
-			}
+				Document doc=Jsoup.connect("https://www.genie.co.kr/chart/top200?ditc=D&ymd=20250825&hh=17&rtm=Y&pg="+k).get(); // 1,2 페이지
+				Elements title=doc.select("table.list-wrap a.title");
+				for(int i=0;i<title.size();i++)
+				{
+					String t=title.get(i).text();
+					set.add(t);
+				}
+			}			
 		}catch(Exception ex) {}
 		return set;
 	}
@@ -85,7 +86,7 @@ public class 컬렉션_2 {
 		System.out.println("======= 멜론 뮤직 Top 100 =======");
 		i=1;
 		Set<String> melon=melonMusic();
-		for(String title:genie)
+		for(String title:melon)
 		{
 			System.out.println(i+"."+title);
 			i++;
@@ -95,10 +96,10 @@ public class 컬렉션_2 {
 		//remoceAll ===> minus
 		//Set<String> genie
 		//genie.removeAll(melon);
-		genie.retainAll(melon);
+		//genie.retainAll(melon);
 		// [1,2,3,4,5].removeAll([3,4,5,6,7]) => 1,2 (같은 것만 제거한다)
-		System.out.println("======== Set에 있는 데이터를 List로 이동");
-		List<String> list=new ArrayList<String>(genie);
+		System.out.println("======== Set에 있는 데이터를 List로 이동 =======");
+		//List<String> list=new ArrayList<String>(genie);
 		// Set => List로 이동
 		// list.addAll(genie)
 		List<String> list=new ArrayList<>();

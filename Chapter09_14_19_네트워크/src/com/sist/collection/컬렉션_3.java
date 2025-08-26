@@ -36,16 +36,19 @@ public class 컬렉션_3 {
 		
 		// 사원 목록 출력
 		System.out.println("======= 사원 목록 =======");
+		System.out.println("사원 수:"+list.size());
 		for(Sawon sa:list)
 		{
-			System.out.println(sa.getSabun()+" "+sa.getName()+" "+sa.getDept()+" "+sa.getJob+" "+sa.getPay());
+			System.out.println(sa.getSabun()+" "+sa.getName()+" "+sa.getDept()+" "+sa.getJob()+" "+sa.getPay());
 		}
 		
 		Sawon sa1=new Sawon(6,"춘향이","기획부","부장",6000);
 		list.add(sa1);
-		for(Sawon sa1:list)
+		System.out.println("======= 사원 목록 =======");
+		System.out.println("사원 수:"+list.size());
+		for(Sawon sa:list)
 		{
-			System.out.println(sa1.getSabun()+" "+sa1.getName()+" "+sa1.getDept()+" "+sa1.getJob+" "+sa1.getPay());
+			System.out.println(sa.getSabun()+" "+sa.getName()+" "+sa.getDept()+" "+sa.getJob()+" "+sa.getPay());
 		}
 		
 	}
