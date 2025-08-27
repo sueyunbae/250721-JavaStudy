@@ -122,7 +122,7 @@ public class 쓰레드_2 extends JFrame implements Runnable, ActionListener{
 	 * 
 	 * */
 	
-	public void fo()
+	public void go()
 	{
 		int a=(int)(Math.random()*71)+30;
 		int b=(int)(Math.random()*71)+30;
@@ -182,14 +182,20 @@ public class 쓰레드_2 extends JFrame implements Runnable, ActionListener{
 		go();
 	}
 	
-	class BarThread extends Thread
-	{
-		
-	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		if(e.getSource()==start)
+		{
+			new Thread(this).start();
+			//go();
+		}
+		else if(e.getSource()==end)
+		{
+			dispose();
+			System.exit(0);
+		}
 		
 	}
 
